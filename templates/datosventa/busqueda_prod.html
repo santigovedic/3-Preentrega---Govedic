@@ -1,0 +1,17 @@
+{% extends "datosventa/inicio.html" %}
+{% load static %}
+
+{% block cont_cambiante %}
+
+    <h1>Si esto se elimina no anda.</h1> <!-- En este momento funciona, pero si se elimina esta línea no aparece nada cuando se busca.-->
+
+    {% if filtro %}
+        RESULTADOS ENCONTRADOS: <br><br>
+        {% for prods in filtro %}
+            <p> {{ prods }} </p>
+        {% endfor %}
+    {% else %}
+        <p> No se encontraron resultados. </p>
+    {% endif %}
+
+{% endblock %}

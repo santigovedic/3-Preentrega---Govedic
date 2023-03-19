@@ -1,0 +1,25 @@
+{% extends "datosventa/inicio.html" %}
+{% load static %}
+
+{% block cont_cambiante %}
+
+    <header class="bg-primary bg-gradient text-white">
+        <div class="container px-4 text-center">
+            <h1 class="fw-bolder">Tu formulario de carga de clientes.</h1>
+        </div>
+    </header>
+
+    <br>
+    Cargá el cliente que quieras
+    <hr>
+    </form action="" method="post">{% csrf_token %}
+        <table>
+        {{ formulario.as_table }}
+        </table>
+
+        <input type="submit" value="Cargar">
+    </form>
+
+    <br>
+    <br>
+{% endblock %}
