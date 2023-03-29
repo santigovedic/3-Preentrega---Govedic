@@ -30,15 +30,18 @@ def clientes(request):
 
     if request.method == "POST":
         form = ClienteForm(request.POST)
+
         if form.is_valid():
             cliente_save = Cliente()
             cliente_save.nombre = form.cleaned_data["nombre"]
             cliente_save.apellido = form.cleaned_data["apellido"]
             cliente_save.edad = form.cleaned_data["edad"]
             cliente_save.email = form.cleaned_data["email"]
-    else:
-        form = ClienteForm()
-    contexto = {"formulario": form}
+            cliente_save.save()
+        else:
+            form = ClienteForm()
+
+    contexto = {"form": ClienteForm()}
     return render(request, "datosventa/clientes.html", context=contexto)
 
 
@@ -46,14 +49,17 @@ def proveedores(request):
 
     if request.method == "POST":
         form = ProvForm(request.POST)
+
         if form.is_valid():
-            prov_save = ProvForm()
+            prov_save = Proveedor()
             prov_save.razon_social = form.cleaned_data["razon_social"]
             prov_save.telefono = form.cleaned_data["telefono"]
             prov_save.email = form.cleaned_data["email"]
-    else:
-        form = ProvForm()
-    contexto = {"formulario": form}
+            prov_save.save()
+        else:
+            form = ProvForm()
+
+    contexto = {"form": ProvForm()}
     return render(request, "datosventa/proveedores.html", context=contexto)
 
 

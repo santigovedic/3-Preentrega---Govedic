@@ -18,9 +18,15 @@ class Cliente(models.Model):
     email = models.EmailField()
     edad = models.IntegerField()
 
+    def __str__(self):
+        return f"{self.apellido, self.nombre}"
+
 
 class Proveedor(models.Model):
 
     razon_social = models.CharField(max_length=30)
     email = models.EmailField()
     telefono = models.IntegerField()
+
+    def __str__(self):
+        return f"{self.razon_social}"
